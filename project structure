@@ -1,0 +1,59 @@
+## 📂 Project Structure
+```
+binance-futures-testnet-bot/
+│── src/
+│   ├── main.py          # Entry point
+│   ├── strategy.py      # Trading logic
+│   ├── utils.py         # Helper functions
+│   ├── websocket.py     # Live data stream
+│── config/
+│   ├── settings.py      # API keys, constants
+│── notebooks/
+│   ├── prototype.ipynb  # Strategy prototype
+│── requirements.txt
+│── README.md
+│── .env.example
+```
+
+---
+
+## ⚙️ Setup
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/yourusername/binance-futures-testnet-bot.git
+cd binance-futures-testnet-bot
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure Environment
+Create a `.env` file:
+```env
+BINANCE_API_KEY=your_testnet_key
+BINANCE_API_SECRET=your_testnet_secret
+BASE_URL=https://testnet.binancefuture.com
+```
+
+### 4. Run Prototype
+```bash
+jupyter notebook notebooks/prototype.ipynb
+```
+
+### 5. Run Bot
+```bash
+python src/main.py
+```
+
+---
+
+## 📊 Example Strategy: SMA Crossover
+The bot calculates **SMA(50)** and **SMA(200)**:
+- If SMA(50) > SMA(200) → Go **LONG**
+- If SMA(50) < SMA(200) → Go **SHORT**
+- Positions are closed when crossover reverses.
+
+
